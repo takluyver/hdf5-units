@@ -67,7 +67,8 @@ in different languages.
 Thus measurements in joules would be annotated with units `'kg m2 s-2'`.
 
 A numeric dataset may also have one or both of the attributes `units_scale_numerator`
-and `units_scale_denominator`. Either must be a floating point or integer number.
+and `units_scale_denominator`. These must be integers. Different integer types may be
+used, but if both attributes are present they should use the same type.
 The numbers in the dataset are multiplied by `units_scale_numerator` and divided by
 `units_scale_denominator` to correspond to the specified units. If either attribute
 is not present, it is taken to be 1.
@@ -75,13 +76,12 @@ is not present, it is taken to be 1.
 Thus, measurements in kilometres may be expressed with `units='m'` and
 `units_scale_numerator=1000`.
 Measurements in millimetres may be similarly expressed with `units_scale_denominator=1000`.
-Millimetres could also use `units_scale_numerator=0.001`, but the decimal value 0.001
-cannot be stored precisely in a binary number, so using the denominator is
-preferred.
 
 Likewise, customary units are described using the scale system.
 For example, measurements in inches (25.4 mm) could be recorded
 with `units='m'`, `units_scale_numerator=254` and `units_scale_denominator=10000`.
+Using two attributes to make a fraction preserves the precise value, as the decimal
+number 0.0254 can't be precisely represented as a binary float.
 
 ## Advertising compliance
 
