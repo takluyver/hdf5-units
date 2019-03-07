@@ -157,4 +157,8 @@ familiar within that domain, such as angstroms.
 - I considered an extra attribute for a human-readable unit description,
   but there's significant potential for confusion if the human-readable
   units and the machine-readable units don't match.
-
+- Describing different units for different parts of a single dataset, e.g. if a
+  2D array is used for a conceptually 1D list of (longitude, latitude, altitude)
+  triples. Working out which units apply to which parts of a multidimensional
+  dataset would add significant complexity. It could be added in a future version
+  if experience shows that it's a common need.
